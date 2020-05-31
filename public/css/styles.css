@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/open-sans-v17-latin-regular.woff2") format("woff2"),
+       url("../assets/fonts/open-sans-v17-latin-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "BOMBARD", Arial, sans-serif;
+  src: url("../assets/fonts/BOMBARD_.otf") format("otf");
+}
+
+body {
+  background: #669966;
+  font: 1.6rem "Open Sans", sans-serif;
+  color: #404040;
+}
+
+.header {
+  font-family: "BOMBARD", Arial, sans-serif;
+  font-size: 4.4rem;
+  color: lightgrey;
+  text-align: center
+}
+.intro {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.4rem;
+  color: white;
+  text-align: center
+}
+.wave-container {
+    position: relative;
+    color: #FFF;
+    text-align: center;
+    overflow: hidden;
+  }
+  .wave-container > svg {
+    display: block;
+  }
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+button.submit {
+  text-align: center;
+}
+#cms textarea {
+  resize: none;
+}
+.card-header button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  text-align: center;
+}
+.bg-custom-1 {
+background-color: rgba(255,255,255, 0.5);
+}
+#saved-dest {
+  cursor: pointer;
+  color: #5F23AD
+}
+ul { 
+list-style-type: none;
+list-style-position: outside;
+} 
+
+li { 
+border-bottom:1px solid #404040 ;
+text-align: left;
+}  
+
+h2, h3 {
+  text-align: center;
+}
+
