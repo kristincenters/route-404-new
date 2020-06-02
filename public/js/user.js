@@ -1,4 +1,4 @@
-//variable for APIkey
+var api = process.env.MAP_API;
 var notes = [];
 
 //function for geocode to push lat and lng to Google Map API
@@ -7,7 +7,7 @@ function geocode(query) {
 		url: 'https://api.opencagedata.com/geocode/v1/json',
 		method: 'GET',
 		data: {
-			key: process.env.MAP_API,
+			key: api,
 			q: query,
 			no_annotations: 1,
 		},
@@ -33,7 +33,7 @@ function initMap(PLACENAME) {
 		'https://api.opencagedata.com/geocode/v1/json?q=' +
 		PLACENAME +
 		'&key=' +
-		process.env.MAP_API;
+		api;
 
 	$.ajax({
 		url: queryURL,
@@ -67,7 +67,7 @@ function initMap2() {
 			'https://api.opencagedata.com/geocode/v1/json?q=' +
 			savedDest +
 			'&key=' +
-			process.env.MAP_API;
+			api;
 
 		$.ajax({
 			url: queryURL,
@@ -143,11 +143,18 @@ function deleteNote(id) {
 		window.location.href = '/userdest';
 	});
 }
+function closeDetails() {
+	$('details[open]').removeAttr('open');
+}
+
+$('details').on('click', function () {
+	$('details[open]').not(this).removeAttr('open');
+});
+
 $(document).ready(function () {
 	// Gets an optional query string from our url (i.e. ?post_id=23)
 	var url = window.location.search;
 	var destID;
-	// Sets a flag for whether or not we're updating a post to be false initially
 	var updating = false;
 
 	getNotes();
@@ -162,7 +169,6 @@ $(document).ready(function () {
 	// Getting jQuery references to the post destination
 	var destInput = $('#destination');
 	var destInputForm = $('#destInput');
-	$('.collapsible').collapsible();
 
 	// ================================================
 	// Event listener for when the form is submitted for destination
@@ -181,5 +187,14 @@ $(document).ready(function () {
 			body: noteText,
 		};
 		submitNote(newNote);
+		$(function () {
+			function slideMenu() {
+				var activeState = $('#menu-container .menu-list').hasClass('active');
+				$('#menu-container .menu-list').animate(
+					{ left: activeState ? '0%' : '-100%' },
+					400
+				);
+			}
+		}); // jQuery load
 	});
 });
