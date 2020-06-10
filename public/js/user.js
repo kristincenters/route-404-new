@@ -1,4 +1,4 @@
-var api = process.env.MAP_API;
+const APIkey = '47c3a4e7c75c45e7ad46ffc3e676da38';
 var notes = [];
 
 //function for geocode to push lat and lng to Google Map API
@@ -7,7 +7,7 @@ function geocode(query) {
 		url: 'https://api.opencagedata.com/geocode/v1/json',
 		method: 'GET',
 		data: {
-			key: api,
+			key: APIkey,
 			q: query,
 			no_annotations: 1,
 		},
@@ -33,7 +33,7 @@ function initMap(PLACENAME) {
 		'https://api.opencagedata.com/geocode/v1/json?q=' +
 		PLACENAME +
 		'&key=' +
-		api;
+		APIkey;
 
 	$.ajax({
 		url: queryURL,
@@ -67,7 +67,7 @@ function initMap2() {
 			'https://api.opencagedata.com/geocode/v1/json?q=' +
 			savedDest +
 			'&key=' +
-			api;
+			APIkey;
 
 		$.ajax({
 			url: queryURL,

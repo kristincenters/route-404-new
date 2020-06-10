@@ -61,7 +61,7 @@ button.edit {
 }
 #saved-dest {
 	cursor: pointer;
-	color: rgb(146, 221, 60);
+	color: darkgreen;
 }
 ul {
 	list-style-type: none;
